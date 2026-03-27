@@ -6,7 +6,7 @@
 </style>
 @endsection
 
-@section('title', 'content')
+@section('title', 'Rental Absolut Cinema App')
 
 @section('content')
 <div class="p-4">
@@ -15,7 +15,7 @@
     <div class="p-2">
       <label class="form-label font-bold" for="user-input">User</label>
       <select name="user-input" id="user-input" class="form-select" aria-label="Input User">
-        <option value="" disabled>Pilih User yang telah terdaftar</option>
+        <option value="" disabled selected>Pilih User yang telah terdaftar</option>
         @foreach ($data['users'] as $user)
         <option value="{{ $user->id }}">{{ $user->salutation }} {{ $user->first_name }} {{ $user->last_name }}</option>
         @endforeach
@@ -24,7 +24,7 @@
     <div class="p-2">
       <label class="form-label font-bold" for="movie-input">Movie</label>
       <select name="movie-input" id="movie-input" class="form-select" aria-label="Input Movie">
-        <option value="" disabled>Pilih Movie yang tersedia</option>
+        <option value="" disabled selected>Pilih Movie yang tersedia</option>
         @foreach ($data['movies'] as $movie)
         <option value="{{ $movie->id }}">{{ $movie->title }}</option>
         @endforeach
