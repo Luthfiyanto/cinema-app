@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Users extends Model
+{
+    protected $table = "users";
+
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'address',
+        'salutation'
+    ];
+
+    public function Rent()
+    {
+        return $this->hasMany(Rent::class, 'movie_id');
+    }
+}
