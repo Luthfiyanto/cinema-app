@@ -31,7 +31,10 @@ class RentController extends Controller
             'user_id' => 'required'
         ]);
 
-        $data = Rent::create([$request]);
+        $data = Rent::create([
+            'movie_id' => $request->movie_id,
+            'user_id' => $request->user_id
+        ]);
 
         return response()->json([
             'message' => 'Rental Movie has been added',
