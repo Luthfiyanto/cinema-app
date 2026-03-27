@@ -2,9 +2,7 @@
 
 @section('style')
 <style>
-  table thead tbody {
-    border: 1px solid;
-  }
+
 </style>
 @endsection
 
@@ -17,6 +15,7 @@
     <div class="p-2">
       <label class="form-label font-bold" for="user-input">User</label>
       <select name="user-input" id="user-input" class="form-select" aria-label="Input User">
+        <option value="" disabled>Pilih User yang telah terdaftar</option>
         @foreach ($data['users'] as $user)
         <option value="{{ $user->id }}">{{ $user->salutation }} {{ $user->first_name }} {{ $user->last_name }}</option>
         @endforeach
@@ -25,6 +24,7 @@
     <div class="p-2">
       <label class="form-label font-bold" for="movie-input">Movie</label>
       <select name="movie-input" id="movie-input" class="form-select" aria-label="Input Movie">
+        <option value="" disabled>Pilih Movie yang tersedia</option>
         @foreach ($data['movies'] as $movie)
         <option value="{{ $movie->id }}">{{ $movie->title }}</option>
         @endforeach
@@ -85,15 +85,16 @@
       }
     }
 
-    fetch(url, options).then(response.json())
+    fetch(url, options)
       .then(response => response.json())
       .then((data) => {
         alert('Pemesanan Movie Berhasil');
-        setTimeOut(() => {
+        setTimeout(() => {
           window.location.reload()
         })
       }).catch(error => {
-        console.log(error)
+        console.log(error);
+        alert('Pemesanan Movie Gagal');
       })
   }
 </script>
